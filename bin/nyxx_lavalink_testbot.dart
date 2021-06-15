@@ -5,8 +5,9 @@ import "package:nyxx_lavalink/lavalink.dart";
 import "package:nyxx/nyxx.dart";
 
 void main() async {
+  final clientId = Snowflake(728671963811414019);
   final client = Nyxx(Platform.environment["DISCORD_TOKEN"]!, GatewayIntents.all);
-  final cluster = Cluster(client, 728671963811414019.toSnowflake());
+  final cluster = Cluster(client, clientId);
 
   client.onReady.listen((event) {
     print("ready");
@@ -46,15 +47,12 @@ void main() async {
 
       final results = await node.autoSearch(splitted.join(" "));
 
-      final params = node.play(Snowflake(context.guild!.id), results.tracks[0]);
-
-      // Set the requester, so we can mention it later
-      params.setRequester(context.author.id);
-      // Set the channel to send a 'track has started' message
-      params.setChannelId(context.channel.id);
-
-      //queue the track
-      await params.queue();
+      await node.play(
+          Snowflake(context.guild!.id),
+          results.tracks[0],
+          requester: context.author.id,
+          channelId: context.channel.id
+      ).queue();
     })
     ..registerCommand('join', (context, message) async {
       if (context.guild == null) return;
@@ -91,5 +89,22 @@ void main() async {
       if (player == null) return;
 
       print(player.queue);
+    })
+    ..registerCommand("leave", (context, message) async {
+      if (context.guild == null) return;
+
+      final state = context.guild!.voiceStates.findOne((item) => item.user.id == clientId);
+
+      if(state == null || state.channel == null) {
+        await context.sendMessage(MessageBuilder.content("I'm not connected to any voice channel"));
+
+        return;
+      }
+
+      final channel = await client.fetchChannel<VoiceGuildChannel>(state.channel!.id);
+
+      channel.disconnect();
+
+      await cluster.getOrCreatePlayerNode(context.guild!.id).destroy(context.guild!.id);
     });
 }
