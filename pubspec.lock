@@ -188,7 +188,7 @@ packages:
     description:
       path: "nyxx_lavalink/"
       ref: dev
-      resolved-ref: f62c52df606b9d1d238f9ca9a45f40f52150da73
+      resolved-ref: d8670413c6bd79474bad9fb79bb93e310f444b32
       url: "https://github.com/AlvaroMS25/nyxx.git"
     source: git
     version: "1.0.0"

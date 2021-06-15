@@ -47,7 +47,7 @@ void main() async {
 
       final results = await node.autoSearch(splitted.join(" "));
 
-      await node.play(
+      node.play(
           Snowflake(context.guild!.id),
           results.tracks[0],
           requester: context.author.id,
@@ -76,9 +76,9 @@ void main() async {
 
       final node = cluster.getOrCreatePlayerNode(context.guild!.id);
 
-      await node.skip(context.guild!.id);
+      node.skip(context.guild!.id);
     })
-    ..registerCommand('nodes', (context, message) => print('${cluster.nodes} connected nodes'))
+    ..registerCommand('nodes', (context, message) => print('${cluster.connectedNodes.length} connected nodes'))
     ..registerCommand("queue", (context, message) {
       if (context.guild == null) return;
 
@@ -105,6 +105,6 @@ void main() async {
 
       channel.disconnect();
 
-      await cluster.getOrCreatePlayerNode(context.guild!.id).destroy(context.guild!.id);
+      cluster.getOrCreatePlayerNode(context.guild!.id).destroy(context.guild!.id);
     });
 }
