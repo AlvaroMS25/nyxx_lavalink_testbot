@@ -166,14 +166,14 @@
         <entry key="node_preamble">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.0/lib" />
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.1/lib" />
             </list>
           </value>
         </entry>
         <entry key="nyxx">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nyxx-2.0.0-rc.6/lib" />
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nyxx-2.0.0-rc.7/lib" />
             </list>
           </value>
         </entry>
@@ -187,7 +187,7 @@
         <entry key="nyxx_lavalink">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Local/Pub/Cache/git/nyxx-f62c52df606b9d1d238f9ca9a45f40f52150da73/nyxx_lavalink/lib" />
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/git/nyxx-8bee518dd728ec168d793efc8c4c2e1e46281abb/nyxx_lavalink/lib" />
             </list>
           </value>
         </entry>
@@ -369,7 +369,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/git/nyxx-f62c52df606b9d1d238f9ca9a45f40f52150da73/nyxx_lavalink/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/git/nyxx-8bee518dd728ec168d793efc8c4c2e1e46281abb/nyxx_lavalink/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/_fe_analyzer_shared-22.0.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/analyzer-1.7.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/args-2.1.1/lib" />
@@ -393,8 +393,8 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.10/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/meta-1.4.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/mime-1.0.0/lib" />
-      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.0/lib" />
-      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nyxx-2.0.0-rc.6/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/node_preamble-2.0.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nyxx-2.0.0-rc.7/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nyxx_commander-2.0.0-rc.10/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/package_config-2.0.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.0/lib" />

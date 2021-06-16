@@ -135,7 +135,7 @@ packages:
     source: hosted
     version: "0.6.3"
   logging:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging
       url: "https://pub.dartlang.org"
@@ -168,14 +168,14 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   nyxx:
     dependency: "direct main"
     description:
       name: nyxx
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-rc.6"
+    version: "2.0.0-rc.7"
   nyxx_commander:
     dependency: "direct main"
     description:
@@ -188,7 +188,7 @@ packages:
     description:
       path: "nyxx_lavalink/"
       ref: dev
-      resolved-ref: d8670413c6bd79474bad9fb79bb93e310f444b32
+      resolved-ref: "8bee518dd728ec168d793efc8c4c2e1e46281abb"
       url: "https://github.com/AlvaroMS25/nyxx.git"
     source: git
     version: "1.0.0"
@@ -368,4 +368,4 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.13.0 <3.0.0"
