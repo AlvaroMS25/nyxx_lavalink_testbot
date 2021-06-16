@@ -6,17 +6,16 @@ import "package:nyxx/nyxx.dart";
 import 'package:logging/logging.dart' show Level;
 
 void main() async {
-  final clientId = Snowflake(728671963811414019);
+  final clientId = Snowflake("YOUR_CLIENT_ID_HERE");
   final client = Nyxx(Platform.environment["DISCORD_TOKEN"]!, GatewayIntents.all);
   final cluster = Cluster(client, clientId, loggingLevel: Level.ALL);
 
   client.onReady.listen((event) {
-    print("ready");
+    print("Ready and connected");
   });
 
   // Add the nodes, you can add as many as you want
-  await cluster.addNode(NodeOptions(port: 18100, password: "testing"));
-  //await cluster.addNode(NodeOptions(port: 18101, password: "testing"));
+  await cluster.addNode(NodeOptions(port: 2333, password: "testing"));
 
   cluster.onTrackStart.listen((event) async {
     final player = event.node.players[event.guildId];
