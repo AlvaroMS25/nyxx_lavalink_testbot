@@ -8,14 +8,14 @@ import 'package:logging/logging.dart' show Level;
 void main() async {
   final clientId = Snowflake("YOUR_CLIENT_ID_HERE");
   final client = Nyxx(Platform.environment["DISCORD_TOKEN"]!, GatewayIntents.all);
-  final cluster = Cluster(client, clientId, loggingLevel: Level.ALL);
+  final cluster = Cluster(client, clientId);
 
   client.onReady.listen((event) {
     print("Ready and connected");
   });
 
   // Add the nodes, you can add as many as you want
-  await cluster.addNode(NodeOptions(port: 2333, password: "testing"));
+  await cluster.addNode(NodeOptions());
 
   cluster.onTrackStart.listen((event) async {
     final player = event.node.players[event.guildId];
@@ -44,8 +44,14 @@ void main() async {
 
       final splitted = message.split(" ");
       splitted.removeAt(0);
+      final query = splitted.join(" ");
 
-      final results = await node.autoSearch(splitted.join(" "));
+      final results = await node.autoSearch(query);
+
+      if(results.tracks.isEmpty) {
+        await context.sendMessage(MessageBuilder.content("No matches with $query"));
+        return;
+      }
 
       node.play(
           Snowflake(context.guild!.id),
@@ -106,5 +112,23 @@ void main() async {
       channel.disconnect();
 
       cluster.getOrCreatePlayerNode(context.guild!.id).destroy(context.guild!.id);
+    })
+    ..registerCommand("np", (context, message) async {
+      if (context.guild == null) return;
+
+      final node = cluster.getOrCreatePlayerNode(context.guild!.id);
+
+      final player = node.players[context.guild!.id];
+
+      if (player == null) return;
+
+      if(player.nowPlaying == null) {
+        await context.sendMessage(MessageBuilder.content("Queue clear"));
+        return;
+      }
+
+      await context.sendMessage(
+        MessageBuilder.content("Currently playing ${player.nowPlaying!.track.info?.title}")
+      );
     });
 }
